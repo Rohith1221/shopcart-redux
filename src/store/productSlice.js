@@ -11,15 +11,6 @@ const initialState = { data: [], status: STATUSES.IDLE };
 const productSlice = createSlice({
   name: "product",
   initialState,
-  reducers: {
-    // these reducers were needed for basic syntax of async programming in redux
-    // setProducts(state, action) {
-    //   state.data = action.payload;
-    // },
-    // setStatus(state, action) {
-    //   state.status = action.payload;
-    // },
-  },
   //  these are needed for redux-toolkit syntax of redux async programming
   extraReducers: (builder) => {
     builder
@@ -37,7 +28,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { setProducts, setStatus } = productSlice.actions;
 export default productSlice.reducer;
 
 //thunks
@@ -49,21 +39,3 @@ export const fetchProducts = createAsyncThunk("product/fetch", async () => {
   const data = res.data;
   return data;
 });
-
-// export function fetchProducts() {
-//   return async function fetchProductThunk(dispatch, getState) {
-//     //getSate is to get current state
-//     dispatch(setStatus(STATUSES.LOADING));
-//     // const state = getState();
-//     // console.log(state);
-//     try {
-//       const res = await axios.get("https://fakestoreapi.com/products");
-//       const data = res.data;
-//       dispatch(setProducts(data));
-//       dispatch(setStatus(STATUSES.IDLE));
-//     } catch (err) {
-//       console.log(err);
-//       dispatch(setStatus(STATUSES.ERROR));
-//     }
-//   };
-// }
