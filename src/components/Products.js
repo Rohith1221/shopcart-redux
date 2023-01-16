@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { add, remove } from "../store/cartSlice";
+import { add } from "../store/cartSlice";
 import { fetchProducts } from "../store/productSlice";
 import { STATUSES } from "../store/productSlice";
 function Products(props) {

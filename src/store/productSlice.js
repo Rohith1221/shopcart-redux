@@ -1,4 +1,3 @@
-import { act, findRenderedComponentWithType } from "react-dom/test-utils";
 import axios from "axios";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
